@@ -31,6 +31,7 @@ namespace StarBuko
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonAddNewItem = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -66,12 +67,24 @@ namespace StarBuko
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonAddNewItem);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(918, 56);
+            this.panel1.Size = new System.Drawing.Size(1044, 56);
             this.panel1.TabIndex = 1;
+            // 
+            // buttonAddNewItem
+            // 
+            this.buttonAddNewItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddNewItem.Location = new System.Drawing.Point(786, 13);
+            this.buttonAddNewItem.Name = "buttonAddNewItem";
+            this.buttonAddNewItem.Size = new System.Drawing.Size(179, 24);
+            this.buttonAddNewItem.TabIndex = 2;
+            this.buttonAddNewItem.Text = "Add New Transaction";
+            this.buttonAddNewItem.UseVisualStyleBackColor = true;
+            this.buttonAddNewItem.Click += new System.EventHandler(this.buttonAddNewItem_Click);
             // 
             // panel2
             // 
@@ -80,15 +93,16 @@ namespace StarBuko
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(918, 497);
+            this.panel2.Size = new System.Drawing.Size(1044, 497);
             this.panel2.TabIndex = 2;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(63, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(478, 497);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(420, 497);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel3
@@ -96,9 +110,9 @@ namespace StarBuko
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.dataGridView1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(478, 0);
+            this.panel3.Location = new System.Drawing.Point(613, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(440, 497);
+            this.panel3.Size = new System.Drawing.Size(431, 497);
             this.panel3.TabIndex = 0;
             // 
             // panel4
@@ -112,7 +126,7 @@ namespace StarBuko
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 397);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(440, 100);
+            this.panel4.Size = new System.Drawing.Size(431, 100);
             this.panel4.TabIndex = 1;
             // 
             // label4
@@ -134,7 +148,6 @@ namespace StarBuko
             this.label3.Size = new System.Drawing.Size(102, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Amount Tendered";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -161,7 +174,7 @@ namespace StarBuko
             this.labelChange.Name = "labelChange";
             this.labelChange.Size = new System.Drawing.Size(38, 15);
             this.labelChange.TabIndex = 1;
-            this.labelChange.Text = "label3";
+            this.labelChange.Text = "₱ 0.00";
             // 
             // labelTotalAmount
             // 
@@ -171,7 +184,7 @@ namespace StarBuko
             this.labelTotalAmount.Name = "labelTotalAmount";
             this.labelTotalAmount.Size = new System.Drawing.Size(38, 15);
             this.labelTotalAmount.TabIndex = 0;
-            this.labelTotalAmount.Text = "label2";
+            this.labelTotalAmount.Text = "₱ 0.00";
             // 
             // dataGridView1
             // 
@@ -185,7 +198,7 @@ namespace StarBuko
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(440, 497);
+            this.dataGridView1.Size = new System.Drawing.Size(431, 497);
             this.dataGridView1.TabIndex = 0;
             // 
             // ProductName
@@ -217,12 +230,11 @@ namespace StarBuko
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(918, 553);
+            this.ClientSize = new System.Drawing.Size(1044, 553);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
             this.Text = "StarBuko";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -248,6 +260,7 @@ namespace StarBuko
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonAddNewItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;

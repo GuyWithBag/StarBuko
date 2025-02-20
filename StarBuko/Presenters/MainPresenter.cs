@@ -38,11 +38,14 @@ namespace StarBuko.Presenters
 
             _view.OnProductClicked += HandleProductClicked;
             _view.OnAmountTenderedChanged += HandleAmountTenderedChanged;
+            _view.OnButtonAddNewItemClicked += HandleButtonAddNewItem; 
         }
 
         private void HandleProductClicked(object sender, Product product)
         {
-            var existingItem = _lineItems.FirstOrDefault(item => item.ProductName == product.Name);
+            var SizeResult = ShowSizeSelectionPopup();
+
+            var existingItem = _lineItems.FirstOrDefault(item => item.ProductName == LineItem.GetProductNameWithSize(item.ProductName, SizeResult));
             if (existingItem != null)
             {
                 existingItem.Quantity++;
@@ -50,11 +53,39 @@ namespace StarBuko.Presenters
             else
             {
                 LineItem newItem = new LineItem(product, product.Price, 1);
+                newItem.Size = SizeResult;
+
+
                 _lineItems.Add(newItem);
             }
 
             _view.DisplayLineItems(_lineItems);
             UpdateTotalAmount();
+        }
+
+        private void HandleButtonAddNewItem(object sender, dynamic _)
+        {
+            // Clear line items: 
+            _lineItems.Clear();
+            _view.DisplayLineItems(null);
+            _view.ResetTotalAmount();
+            
+        }
+
+        private String ShowSizeSelectionPopup()
+        {
+            var result = MessageBox.Show(
+                "Choose Cup Size:\n" +
+                "Yes for Grande (+20), " +
+                "No for Venti (+30), " + 
+                "Cancel for Regular", 
+                "Select Cup Size", 
+                MessageBoxButtons.YesNoCancel
+            );
+
+            if (result == DialogResult.Yes) return "Grande";
+            if (result == DialogResult.No) return "Venti";
+            return "Regular"; 
         }
 
         private void HandleAmountTenderedChanged(object sender, string inputValue)

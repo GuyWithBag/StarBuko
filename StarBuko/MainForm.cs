@@ -12,6 +12,7 @@ namespace StarBuko
     {
         public event EventHandler<Product> OnProductClicked;
         public event EventHandler<string> OnAmountTenderedChanged;
+        public event EventHandler OnButtonAddNewItemClicked; 
   
         private MainPresenter _presenter;
 
@@ -21,6 +22,7 @@ namespace StarBuko
             dataGridView1.AutoGenerateColumns = false;
             textBoxAmountTendered.TextChanged += (s, e) => OnAmountTenderedChanged?.Invoke(this, textBoxAmountTendered.Text);
             _presenter = new MainPresenter(this);
+            buttonAddNewItem.Click += OnButtonAddNewItemClicked; 
         }
 
         public void DisplayProducts(List<Product> products)
@@ -49,12 +51,18 @@ namespace StarBuko
             labelChange.Text = $"₱ {change:N2}";
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        public void ResetTotalAmount()
         {
+            // Reset Total Amount: 
+            labelTotalAmount.Text = "";
+            // Make Amount Tendered Blank: 
+            textBoxAmountTendered.Text = "";
+            labelChange.Text = "";
+
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void buttonAddNewItem_Click(object sender, EventArgs e)
         {
 
         }

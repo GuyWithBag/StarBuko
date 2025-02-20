@@ -12,11 +12,12 @@ namespace StarBuko.Views
     {
         event EventHandler<Product> OnProductClicked;
         event EventHandler<string> OnAmountTenderedChanged;
-        
+        event EventHandler OnButtonAddNewItemClicked;
 
         void DisplayProducts(List<Product> products);
         void DisplayLineItems(BindingList<LineItem> lineItems);
         void UpdateTotalAmount(decimal total);
         void UpdateChange(decimal change);
+        void ResetTotalAmount();
     }
 }

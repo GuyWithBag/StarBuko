@@ -12,5 +12,6 @@ namespace StarBuko.Models
         public decimal Price { get; set; } = 0.00m;
         public string Description { get; set; } = string.Empty;
         public string ImagePath { get; set; } = string.Empty;
+
     }
 }
