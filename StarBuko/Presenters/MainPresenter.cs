@@ -43,19 +43,17 @@ namespace StarBuko.Presenters
 
         private void HandleProductClicked(object sender, Product product)
         {
-            var SizeResult = ShowSizeSelectionPopup();
+            var sizeResult = ShowSizeSelectionPopup();
+            LineItem newItem = new LineItem(product, product.Price, 1);
+            newItem.Size = sizeResult;
 
-            var existingItem = _lineItems.FirstOrDefault(item => item.ProductName == LineItem.GetProductNameWithSize(item.ProductName, SizeResult));
+            var existingItem = _lineItems.FirstOrDefault(item => LineItem.GetProductNameWithSize(newItem.Product.Name, newItem.Size) == LineItem.GetProductNameWithSize(item.Product.Name, item.Size));
             if (existingItem != null)
             {
                 existingItem.Quantity++;
             }
             else
             {
-                LineItem newItem = new LineItem(product, product.Price, 1);
-                newItem.Size = SizeResult;
-
-
                 _lineItems.Add(newItem);
             }
 

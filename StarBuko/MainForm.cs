@@ -58,13 +58,6 @@ namespace StarBuko
             // Make Amount Tendered Blank: 
             textBoxAmountTendered.Text = "";
             labelChange.Text = "";
-
-
-        }
-
-        private void buttonAddNewItem_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -12,7 +12,8 @@ namespace StarBuko.Models
         [Browsable(false)]
         public Product Product { get; set; }
 
-        public string ProductName => Product.Name;
+        public string ProductName => LineItem.GetProductNameWithSize(Product.Name, Size);
+        public string ProductNameOriginal => Product.Name;
 
         public int Quantity { get; set; }
         private decimal _price;
@@ -38,14 +39,14 @@ namespace StarBuko.Models
 
         public static String GetProductNameWithSize(String productName, String size)
         {
-            return productName + $" {GetSizePrice(size)}";
+            return  $"{productName} ({size})";
         }
 
-        private static int GetSizePrice(String result)
+        private static int GetSizePrice(String size)
         {
             var resultPrice = 0;
-            if (result == "Grande") resultPrice = 20;
-            if (result == "Venti") resultPrice = 30;
+            if (size == "Grande") resultPrice = 20;
+            if (size == "Venti") resultPrice = 30;
             return resultPrice;
         }
     }
