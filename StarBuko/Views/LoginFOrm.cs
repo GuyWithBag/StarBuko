@@ -17,6 +17,7 @@ namespace StarBuko.Views
         {
             _presenter = new LoginPresenter(this); 
             InitializeComponent();
+            loginButton.Click += LoginUser;
         }
 
         public event EventHandler<(string username, string password)> OnLoginAttempt;
@@ -49,6 +50,11 @@ namespace StarBuko.Views
         {
             this.DialogResult = DialogResult.OK;
             this.Close(); 
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
