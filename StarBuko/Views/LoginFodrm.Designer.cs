@@ -1,7 +1,7 @@
 ﻿
 namespace StarBuko.Views
 {
-    partial class LoginForm
+    partial class LoginFodrm
     {
         /// <summary>
         /// Required designer variable.

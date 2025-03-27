@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace StarBuko.Views
 {
-    public partial class LoginForm : Form, ILoginForm
+    public partial class LoginFodrm : Form, ILoginForm
     {
         private LoginPresenter _presenter;
 
-        public LoginForm()
+        public LoginFodrm()
         {
             _presenter = new LoginPresenter(this); 
             InitializeComponent();

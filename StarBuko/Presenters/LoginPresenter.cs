@@ -22,7 +22,7 @@ namespace StarBuko.Presenters
         {
             if (_userRepository.IsValidUser(credentials.username, credentials.password))
             {
-                (_view as LoginForm)?.LoginSuccessful(); 
+                (_view as LoginFodrm)?.LoginSuccessful(); 
             } else
             {
                 _view.ShowLoginError("Invalid credentials."); 

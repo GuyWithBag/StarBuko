@@ -19,7 +19,7 @@ namespace StarBuko
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new LoginForm());
-            using (LoginForm loginForm = new LoginForm())
+            using (LoginFodrm loginForm = new LoginFodrm())
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {
