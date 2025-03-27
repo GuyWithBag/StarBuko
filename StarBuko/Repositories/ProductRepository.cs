@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using MySqlConnector;
+using MySql.Data.MySqlClient; 
+//using MySqlConnector;
 
 namespace StarBuko.Repositories
 {
