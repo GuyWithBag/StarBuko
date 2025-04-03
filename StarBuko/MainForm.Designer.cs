@@ -47,6 +47,7 @@ namespace StarBuko
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonAddNewProduct = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -67,6 +68,7 @@ namespace StarBuko
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.buttonAddNewProduct);
             this.panel1.Controls.Add(this.buttonAddNewItem);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -78,7 +80,7 @@ namespace StarBuko
             // buttonAddNewItem
             // 
             this.buttonAddNewItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAddNewItem.Location = new System.Drawing.Point(913, 13);
+            this.buttonAddNewItem.Location = new System.Drawing.Point(743, 13);
             this.buttonAddNewItem.Name = "buttonAddNewItem";
             this.buttonAddNewItem.Size = new System.Drawing.Size(179, 24);
             this.buttonAddNewItem.TabIndex = 2;
@@ -225,6 +227,15 @@ namespace StarBuko
             this.TotalPrice.HeaderText = "Total Price";
             this.TotalPrice.Name = "TotalPrice";
             // 
+            // buttonAddNewProduct
+            // 
+            this.buttonAddNewProduct.Location = new System.Drawing.Point(964, 14);
+            this.buttonAddNewProduct.Name = "buttonAddNewProduct";
+            this.buttonAddNewProduct.Size = new System.Drawing.Size(145, 23);
+            this.buttonAddNewProduct.TabIndex = 3;
+            this.buttonAddNewProduct.Text = "Add New Product";
+            this.buttonAddNewProduct.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -265,6 +276,7 @@ namespace StarBuko
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalPrice;
+        private System.Windows.Forms.Button buttonAddNewProduct;
     }
 }
 

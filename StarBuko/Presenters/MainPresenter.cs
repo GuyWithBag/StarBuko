@@ -43,7 +43,8 @@ namespace StarBuko.Presenters
 
             _view.OnProductClicked += HandleProductClicked;
             _view.OnAmountTenderedChanged += HandleAmountTenderedChanged;
-            _view.OnButtonAddNewItemClicked += HandleButtonAddNewItem; 
+            _view.OnButtonAddNewItemClicked += HandleButtonAddNewItem;
+            _view.OnButtonAddNewProductClicked += HandleButtonAddNewProduct;
         }
 
         private void HandleProductClicked(object sender, Product product)
@@ -64,6 +65,17 @@ namespace StarBuko.Presenters
 
             _view.DisplayLineItems(_lineItems);
             UpdateTotalAmount();
+        }
+        private void HandleButtonAddNewProduct(object sender, dynamic _)
+        {
+            using (AddProductForm form = new AddProductForm())
+            {
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    _products = _repository.GetProducts();
+                    _view.DisplayProducts(_products);
+                }
+            }
         }
 
         private void HandleButtonAddNewItem(object sender, dynamic _)

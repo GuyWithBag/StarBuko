@@ -5,6 +5,7 @@ using StarBuko.Presenters;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using StarBuko.Repositories;
 
 namespace StarBuko
 {
@@ -13,8 +14,10 @@ namespace StarBuko
         public event EventHandler<Product> OnProductClicked;
         public event EventHandler<string> OnAmountTenderedChanged;
         public event EventHandler OnButtonAddNewItemClicked; 
-  
+        public event EventHandler OnButtonAddNewProductClicked;
+
         private MainPresenter _presenter;
+        UserRepository _userRepository; 
 
         public MainForm()
         {
@@ -22,7 +25,15 @@ namespace StarBuko
             dataGridView1.AutoGenerateColumns = false;
             textBoxAmountTendered.TextChanged += (s, e) => OnAmountTenderedChanged?.Invoke(this, textBoxAmountTendered.Text);
             _presenter = new MainPresenter(this);
-            buttonAddNewItem.Click += OnButtonAddNewItemClicked; 
+            buttonAddNewItem.Click += OnButtonAddNewItemClicked;
+            buttonAddNewProduct.Click += OnButtonAddNewProductClicked;
+            _userRepository = new UserRepository();
+
+            buttonAddNewProduct.Hide();
+            if (_userRepository.getUserRole(Program.presenter.currentUserName).ToLower() == "admin")
+            {
+                buttonAddNewProduct.Show();
+            }
         }
 
         public void DisplayProducts(List<Product> products)

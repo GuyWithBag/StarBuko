@@ -13,6 +13,7 @@ namespace StarBuko.Views
         event EventHandler<Product> OnProductClicked;
         event EventHandler<string> OnAmountTenderedChanged;
         event EventHandler OnButtonAddNewItemClicked;
+        event EventHandler OnButtonAddNewProductClicked;
 
         void DisplayProducts(List<Product> products);
         void DisplayLineItems(BindingList<LineItem> lineItems);

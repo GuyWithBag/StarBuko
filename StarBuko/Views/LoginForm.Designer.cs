@@ -65,6 +65,7 @@ namespace StarBuko.Views
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(12, 105);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(100, 23);
             this.passwordTextBox.TabIndex = 3;
             // 

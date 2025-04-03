@@ -30,7 +30,7 @@ namespace StarBuko.Repositories
                                 Name = reader.GetString("productName"),
                                 Price = reader.GetDecimal("price"),
                                 ImagePath = reader.GetString("image")
-                            }); ;
+                            });
                         }
                     }
                 }
@@ -38,5 +38,28 @@ namespace StarBuko.Repositories
             return products; 
         }
 
+        public string AddProduct(Product product)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                string query = "INSERT INTO products (productName, price, image) VALUES (@productName, @price, @image)";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@productName", product.Name);
+                    //cmd.Parameters.AddWithValue("@description", product.Description);
+                    cmd.Parameters.AddWithValue("@price", product.Price);
+                    cmd.Parameters.AddWithValue("@image", product.ImagePath);
+
+                    int result = cmd.ExecuteNonQuery(); // Executes the query
+
+                    if (result > 0)
+                        return "Product added successfully.";
+                    else
+                        return "Failed to add product.";
+                }
+            }
+        }
     }
 }

@@ -22,5 +22,19 @@ namespace StarBuko.Repositories
                 return Convert.ToInt32(cmd.ExecuteScalar()) > 0; 
             }
         }
+
+        public string getUserRole(string username)
+        {
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                string query = "SELECT role FROM users WHERE username = @username";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@username", username);
+
+                object execute = cmd.ExecuteScalar();
+                return execute.ToString();
+            }
+        }
     }
 }

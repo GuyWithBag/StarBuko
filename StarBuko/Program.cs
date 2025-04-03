@@ -1,3 +1,4 @@
+using StarBuko.Presenters;
 using StarBuko.Views;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,10 @@ namespace StarBuko
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+        /// 
+
+        static public ProgramPresenter presenter = new ProgramPresenter(); 
+
         [STAThread]
         static void Main()
         {
@@ -23,7 +28,8 @@ namespace StarBuko
             {
                 if (loginForm.ShowDialog() == DialogResult.OK)
                 {
-                    Application.Run(new MainForm());
+                    presenter.currentUserName = loginForm.Username; 
+                    Application.Run(new MainForm()); 
                 }
             }
         }
