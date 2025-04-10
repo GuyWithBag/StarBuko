@@ -32,10 +32,10 @@ namespace StarBuko.Views
             this.buttonDone = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.textBoxPrice = new System.Windows.Forms.TextBox();
-            this.textBoxImage = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonDone
@@ -66,16 +66,6 @@ namespace StarBuko.Views
             this.label2.TabIndex = 6;
             this.label2.Text = "Price";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(210, 185);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 15);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Image";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(210, 98);
@@ -90,27 +80,30 @@ namespace StarBuko.Views
             this.textBoxPrice.Size = new System.Drawing.Size(100, 23);
             this.textBoxPrice.TabIndex = 11;
             // 
-            // textBoxImage
+            // pictureBox1
             // 
-            this.textBoxImage.Location = new System.Drawing.Point(210, 203);
-            this.textBoxImage.Name = "textBoxImage";
-            this.textBoxImage.Size = new System.Drawing.Size(160, 23);
-            this.textBoxImage.TabIndex = 12;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pictureBox1.Location = new System.Drawing.Point(33, 73);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(152, 153);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(397, 374);
-            this.Controls.Add(this.textBoxImage);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBoxPrice);
             this.Controls.Add(this.textBoxName);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonDone);
             this.Name = "AddProductForm";
             this.Text = "AddProductForm";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -120,9 +113,8 @@ namespace StarBuko.Views
         private System.Windows.Forms.Button buttonDone;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.TextBox textBoxPrice;
-        private System.Windows.Forms.TextBox textBoxImage;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

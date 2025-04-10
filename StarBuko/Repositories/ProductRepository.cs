@@ -51,7 +51,7 @@ namespace StarBuko.Repositories
                     //cmd.Parameters.AddWithValue("@description", product.Description);
                     cmd.Parameters.AddWithValue("@price", product.Price);
                     cmd.Parameters.AddWithValue("@image", product.ImagePath);
-
+                    
                     int result = cmd.ExecuteNonQuery(); // Executes the query
 
                     if (result > 0)

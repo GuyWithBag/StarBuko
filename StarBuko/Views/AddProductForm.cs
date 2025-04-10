@@ -23,7 +23,7 @@ namespace StarBuko.Views
             Product product = new Product {
                 Name = textBoxName.Text,
                 Price = Convert.ToDecimal(textBoxPrice.Text),
-                ImagePath = textBoxImage.Text
+                ImagePath = pictureBox1.ImageLocation
             };
             _productRepository.AddProduct(product);
             this.DialogResult = DialogResult.OK;
@@ -34,5 +34,39 @@ namespace StarBuko.Views
         {
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            string img = GetFile();
+            pictureBox1.Image = Image.FromFile(img);
+            pictureBox1.ImageLocation = img;
+        }
+
+        public string GetFile()
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                // Configure dialog
+                openFileDialog.Title = "Select an Image File";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        // Load the selected image
+                        return openFileDialog.FileName;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error loading image: {ex.Message}");
+                        return null;
+                    }
+                }
+            }
+            return null;
+        }
+
     }
 }
